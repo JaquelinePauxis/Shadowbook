@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo Corporal Estético | Guia Determinístico</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF7F3',
+              rosebg: '#FBF3F0',
+              rose: '#D89C8E',
+              rosedark: '#B87869',
+              lilas: '#8E7DBE',
+              lilaslight: '#F3EEFB',
+              mint: '#5E9387',
+              mintlight: '#EBF4F1',
+              dark: '#262220',
+              muted: '#615A56',
+              border: '#E8DDD6'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(145deg, #FAF7F3 0%, #F5EDE7 50%, #F0E7E1 100%);
+      min-height: 100vh;
+      color: #262220;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .card-glass {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(232, 221, 214, 0.85);
+      box-shadow: 0 10px 25px -5px rgba(184, 120, 105, 0.08), 0 4px 10px -3px rgba(0, 0, 0, 0.02);
+    }
+    .step-check.done {
+      background-color: #5E9387 !important;
+      border-color: #5E9387 !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+<body class="p-3.5 sm:p-6 lg:p-8">
+
+  <div class="max-w-3xl mx-auto space-y-5 sm:space-y-6">
+
+    <!-- Top Hero Header -->
+    <header class="card-glass rounded-3xl p-5 sm:p-7 text-center relative overflow-hidden">
+      <div class="absolute -top-16 -right-16 w-36 h-36 bg-brand-rose/25 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -left-16 w-36 h-36 bg-brand-lilas/20 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-rosebg border border-brand-rose/30 text-brand-rosedark text-[11px] font-semibold tracking-wide uppercase mb-2.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Rotina Estética Determinística
+      </div>
+      <h1 class="font-display font-semibold text-2xl sm:text-3xl text-brand-dark tracking-tight">
+        Protocolo Corporal Diário
+      </h1>
+      <p class="text-brand-muted text-xs sm:text-sm mt-1.5 max-w-lg mx-auto">
+        Sem dúvidas ou opções duplas: passos exatos para Lipocavitação, Manta Térmica, Cosméticos e Treino.
+      </p>
+
+      <!-- Global Progress Bar -->
+      <div class="mt-4 max-w-xs mx-auto bg-white/90 p-2.5 rounded-2xl border border-brand-border shadow-sm flex items-center justify-between gap-3 text-xs">
+        <span class="font-medium text-brand-mint" id="progressSummaryLabel">Passos: 0 de 5</span>
+        <div class="w-32 h-2.5 bg-gray-100 rounded-full overflow-hidden border border-gray-200">
+          <div id="progressBar" class="h-full bg-brand-mint transition-all duration-300 w-0"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Regras Inegociáveis de Segurança -->
+    <section class="bg-rose-50/90 border border-rose-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start gap-3.5 shadow-sm">
+      <div class="w-9 h-9 rounded-xl bg-rose-500/10 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      </div>
+      <div class="text-xs sm:text-sm text-rose-950 space-y-1 leading-relaxed flex-1">
+        <h2 class="font-bold flex items-center gap-1.5 text-rose-900 tracking-wide uppercase text-xs">
+          Regras de Ouro e Segurança Indelével
+        </h2>
+        <ul class="list-disc list-inside space-y-1 text-rose-800">
+          <li><strong>Lipocavitação:</strong> Use <u>APENAS</u> Gel Condutor Neutro. Nunca passe creme algum no cabeçote ultrassônico.</li>
+          <li><strong>Sob a Manta Térmica:</strong> Use <u>APENAS</u> o Pote Verde (Localizada) ou Pote Lilás (Drenagem Linfática).</li>
+          <li><strong>PROIBIDO NA MANTA:</strong> <u>Nunca</u> use o Pote Vermelho (Termoativado) ou Pote Preto (Pimenta Negra) sob a manta. Risco severo de queimadura química!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Phase & Day Control -->
+    <section class="card-glass rounded-3xl p-5 sm:p-6 space-y-5">
+      <!-- 1. Fase -->
+      <div>
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-brand-muted mb-2.5">
+          1. Fase do Tratamento
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <button onclick="selectPhase(1)" id="phaseBtn1" class="phase-btn p-3.5 rounded-2xl border text-left transition-all relative bg-white shadow-sm hover:border-brand-rose">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-brand-rosedark">Fase 1 (Semanas 1 a 3)</span>
+            <span class="block text-sm font-bold text-brand-dark mt-0.5">Ataque Diário (7x)</span>
+            <span class="block text-[11px] text-gray-500">10 min/dia com cronograma fixo</span>
+          </button>
+          <button onclick="selectPhase(2)" id="phaseBtn2" class="phase-btn p-3.5 rounded-2xl border text-left transition-all relative bg-white shadow-sm hover:border-brand-rose">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-brand-rosedark">Fase 2 (Semanas 4 a 7)</span>
+            <span class="block text-sm font-bold text-brand-dark mt-0.5">A Cada 3 Dias</span>
+            <span class="block text-[11px] text-gray-500">Dia de aparelho + 2 de pausa</span>
+          </button>
+          <button onclick="selectPhase(3)" id="phaseBtn3" class="phase-btn p-3.5 rounded-2xl border text-left transition-all relative bg-white shadow-sm hover:border-brand-rose">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-brand-rosedark">Fase 3 (Semana 8+)</span>
+            <span class="block text-sm font-bold text-brand-dark mt-0.5">Manutenção (1x)</span>
+            <span class="block text-[11px] text-gray-500">Fixo no sábado master</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Seleção de Dia / Ciclo -->
+      <div>
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-brand-muted mb-2.5" id="daySectionTitle">
+          2. Dia da Semana
+        </label>
+
+        <!-- Weekdays Buttons (Fase 1 e 3) -->
+        <div id="weekButtonsBox" class="flex flex-wrap gap-2">
+          <button onclick="selectWeekday('seg')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="seg">Segunda</button>
+          <button onclick="selectWeekday('ter')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="ter">Terça</button>
+          <button onclick="selectWeekday('qua')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="qua">Quarta</button>
+          <button onclick="selectWeekday('qui')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="qui">Quinta</button>
+          <button onclick="selectWeekday('sex')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="sex">Sexta</button>
+          <button onclick="selectWeekday('sab')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="sab">Sábado</button>
+          <button onclick="selectWeekday('dom')" class="day-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all" data-day="dom">Domingo</button>
+        </div>
+
+        <!-- Ciclo de 3 Dias (Fase 2) -->
+        <div id="cycleButtonsBox" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <button onclick="selectCycleIndex(1)" class="cycle-btn p-3 rounded-xl border text-center transition-all bg-white" data-cycle="1">
+            <span class="block font-bold text-sm text-brand-dark">Dia 1: Procedimento</span>
+            <span class="text-[11px] text-brand-mint font-semibold">Lipo + Manta + Treino</span>
+          </button>
+          <button onclick="selectCycleIndex(2)" class="cycle-btn p-3 rounded-xl border text-center transition-all bg-white" data-cycle="2">
+            <span class="block font-bold text-sm text-brand-dark">Dia 2: Estímulo Manual</span>
+            <span class="text-[11px] text-rose-700 font-semibold">Termoativado (Vermelho)</span>
+          </button>
+          <button onclick="selectCycleIndex(3)" class="cycle-btn p-3 rounded-xl border text-center transition-all bg-white" data-cycle="3">
+            <span class="block font-bold text-sm text-brand-dark">Dia 3: Pausa Total</span>
+            <span class="text-[11px] text-gray-500 font-semibold">Recuperação & Hidratação</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Dynamic Plan Card -->
+    <main class="card-glass rounded-3xl p-5 sm:p-7 relative border border-brand-rose/40">
+      
+      <!-- Top Title and Status -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-brand-border">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="badgeCategory" class="px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white">
+              Sessão Completa
+            </span>
+            <span id="badgePhase" class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-brand-rosebg text-brand-rosedark border border-brand-rose/40">
+              Fase 1
+            </span>
+          </div>
+          <h2 id="planDayTitle" class="font-display font-semibold text-xl sm:text-2xl text-brand-dark mt-1">
+            Segunda-feira: Protocolo Master
+          </h2>
+          <p id="planDaySub" class="text-xs sm:text-sm text-brand-muted mt-0.5">
+            Esfoliação Corporal + Lipocavitação + Pote Lilás (Drenagem) + Manta Térmica + Aeróbico.
+          </p>
+        </div>
+
+        <button onclick="resetDayChecklist()" class="self-start sm:self-center text-xs text-brand-rosedark hover:text-brand-rose font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-brand-border shadow-sm transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          Reiniciar Passos
+        </button>
+      </div>
+
+      <!-- Step-by-Step Interactive Checklist -->
+      <div class="mt-6 space-y-4" id="stepListContainer">
+        
+        <!-- Passo 0: Preparo / Banho -->
+        <article class="p-4 rounded-2xl bg-white/95 border border-brand-border transition-all" id="cardStep0">
+          <div class="flex items-start gap-3.5">
+            <button onclick="toggleStep(0)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center text-transparent hover:border-brand-mint transition shrink-0" id="check0">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-bold text-sm sm:text-base text-brand-dark flex items-center gap-2">
+                  <span>Passo 0: Higiene & Preparo da Pele</span>
+                  <span id="tagStep0" class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 border border-stone-200">
+                    Esfoliante Corporal
+                  </span>
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-brand-muted mt-1 leading-relaxed" id="descStep0">
+                Tome um banho morno. Faça esfoliação circular suave com o <strong>Esfoliante Corporal</strong> na cintura e abdômen para afinar a textura da pele. Enxágue bem e seque a pele 100%.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Passo 1: Lipocavitação -->
+        <article class="p-4 rounded-2xl bg-white/95 border border-brand-border transition-all" id="cardStep1">
+          <div class="flex items-start gap-3.5">
+            <button onclick="toggleStep(1)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center text-transparent hover:border-brand-mint transition shrink-0" id="check1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </button>
+            <div class="flex-1 space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-bold text-sm sm:text-base text-brand-dark flex items-center gap-2">
+                  <span>Passo 1: Lipocavitação com Ultrassom</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-cyan-50 text-cyan-800 border border-cyan-200">
+                    Gel Condutor Neutro Incolor
+                  </span>
+                </h3>
+                <span class="text-xs font-semibold text-brand-mint">10 minutos</span>
+              </div>
+              
+              <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
+                Aplique uma camada generosa de <strong>Gel Condutor Neutro</strong> (nunca cremes!). Deslize a ponteira em movimentos circulares lentos e contínuos pelo abdômen e flancos. Ao terminar, retire todo o gel com uma toalha seca.
+              </p>
+
+              <!-- Integrated Timer for Lipocavitation -->
+              <div class="bg-brand-rosebg/60 p-3 rounded-xl border border-brand-rose/30 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-brand-mint/15 text-brand-mint flex items-center justify-center font-bold">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[10px] block text-brand-muted font-bold uppercase tracking-wider">Timer Lipocavitação</span>
+                    <span id="timerLipoDisplay" class="font-mono text-lg font-bold text-brand-dark">10:00</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <button onclick="startLipoTimer()" id="btnLipoStart" class="px-3 py-1.5 rounded-xl bg-brand-mint hover:bg-teal-700 text-white text-xs font-semibold shadow-sm transition">
+                    Iniciar
+                  </button>
+                  <button onclick="pauseLipoTimer()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition">
+                    Pausar
+                  </button>
+                  <button onclick="resetLipoTimer()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition">
+                    Zerar
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- Passo 2: Massagem (Instruções Determinísticas) -->
+        <article class="p-4 rounded-2xl bg-white/95 border border-brand-border transition-all" id="cardStep2">
+          <div class="flex items-start gap-3.5">
+            <button onclick="toggleStep(2)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center text-transparent hover:border-brand-mint transition shrink-0" id="check2">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </button>
+            <div class="flex-1 space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-bold text-sm sm:text-base text-brand-dark flex items-center gap-2">
+                  <span id="titleStep2">Passo 2: Massagem com o Marido</span>
+                  <span id="tagStep2Creme" class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200">
+                    Pote Lilás (Drenagem)
+                  </span>
+                </h3>
+                <span class="text-xs font-semibold text-brand-rosedark">3 a 5 minutos</span>
+              </div>
+
+              <p class="text-xs sm:text-sm text-brand-muted leading-relaxed" id="descStep2">
+                Aplique a quantidade indicada do creme. Peça para o seu marido executar as manobras abaixo com firmeza moderada para direcionar líquidos e moldar a cintura.
+              </p>
+
+              <!-- Cartão Guia para o Marido -->
+              <div class="p-3.5 bg-brand-rosebg/50 rounded-2xl border border-brand-border space-y-2 text-xs">
+                <p class="font-bold text-brand-dark flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+                  <svg class="w-4 h-4 text-brand-rosedark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+                  Instruções para o Marido (4 Manobras Rápidas):
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-brand-dark">
+                  <div class="bg-white/90 p-2.5 rounded-xl border border-gray-100">
+                    <span class="font-bold text-brand-mint block">1. Drenagem para a Virilha</span>
+                    Mãos espalmadas deslizando do umbigo para baixo (virilha) com pressão suave e contínua.
+                  </div>
+                  <div class="bg-white/90 p-2.5 rounded-xl border border-gray-100">
+                    <span class="font-bold text-brand-mint block">2. Modelagem dos Flancos</span>
+                    Puxar a lateral da cintura (costas) em direção ao centro do umbigo, vincando a curva da cintura.
+                  </div>
+                  <div class="bg-white/90 p-2.5 rounded-xl border border-gray-100">
+                    <span class="font-bold text-brand-mint block">3. Círculos no Abdômen</span>
+                    Movimentos circulares contínuos ao redor do umbigo, sempre no sentido horário.
+                  </div>
+                  <div class="bg-white/90 p-2.5 rounded-xl border border-gray-100">
+                    <span class="font-bold text-brand-mint block">4. Amassamento Leve</span>
+                    Pequenas pinçadas rítmicas com a ponta dos dedos na gordura compacta para estimular a circulação.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- Passo 3: Manta Térmica + Plástico Filme -->
+        <article class="p-4 rounded-2xl bg-white/95 border border-brand-border transition-all" id="cardStep3">
+          <div class="flex items-start gap-3.5">
+            <button onclick="toggleStep(3)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center text-transparent hover:border-brand-mint transition shrink-0" id="check3">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </button>
+            <div class="flex-1 space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-bold text-sm sm:text-base text-brand-dark flex items-center gap-2">
+                  <span>Passo 3: Manta Térmica + Plástico Filme PVC</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-orange-50 text-orange-800 border border-orange-200">
+                    Termoterapia Oclusiva
+                  </span>
+                </h3>
+                <span class="text-xs font-semibold text-orange-700">25 minutos</span>
+              </div>
+              
+              <p class="text-xs sm:text-sm text-brand-muted leading-relaxed" id="descStep3">
+                Com o creme indicado já espalhado na pele, passe <strong>2 a 3 voltas de plástico filme PVC</strong> bem ajustadas na cintura para reter os ativos e não manchar a manta. Feche a manta por cima e relaxe durante o timer.
+              </p>
+
+              <!-- Integrated Timer for Blanket -->
+              <div class="bg-orange-50/60 p-3 rounded-xl border border-orange-200 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-orange-500/15 text-orange-600 flex items-center justify-center font-bold">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[10px] block text-brand-muted font-bold uppercase tracking-wider">Timer Manta Térmica</span>
+                    <span id="timerMantaDisplay" class="font-mono text-lg font-bold text-brand-dark">25:00</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <button onclick="startMantaTimer()" id="btnMantaStart" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-semibold shadow-sm transition">
+                    Iniciar
+                  </button>
+                  <button onclick="pauseMantaTimer()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition">
+                    Pausar
+                  </button>
+                  <button onclick="resetMantaTimer()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition">
+                    Zerar
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- Passo 4: Treino Aeróbico -->
+        <article class="p-4 rounded-2xl bg-white/95 border border-brand-border transition-all" id="cardStep4">
+          <div class="flex items-start gap-3.5">
+            <button onclick="toggleStep(4)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center text-transparent hover:border-brand-mint transition shrink-0" id="check4">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-bold text-sm sm:text-base text-brand-dark flex items-center gap-2">
+                  <span>Passo 4: Treino Aeróbico (Queima da Gordura)</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-rose-50 text-rose-800 border border-rose-200">
+                    Obrigatório no Mesmo Dia
+                  </span>
+                </h3>
+                <span class="text-xs font-semibold text-brand-mint">20 a 45 min</span>
+              </div>
+              <p class="text-xs sm:text-sm text-brand-muted mt-1 leading-relaxed">
+                Retire o plástico filme, limpe o excesso de suor com uma toalha e inicie seu exercício (caminhada rápida, esteira, dança ou bike). A musculatura consumirá imediatamente os ácidos graxos soltos pelo aparelho como combustível direto!
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- Guia Visual Preciso dos Produtos e Potes -->
+    <section class="card-glass rounded-3xl p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-brand-border pb-3">
+        <div>
+          <h2 class="font-display font-semibold text-lg text-brand-dark">
+            Guia Determinístico de Produtos
+          </h2>
+          <p class="text-xs text-brand-muted">
+            Sem ambiguidades: função exata e momento fixado de cada item.
+          </p>
+        </div>
+        <span class="text-[11px] text-brand-rosedark font-bold uppercase tracking-wider bg-brand-rosebg px-2.5 py-1 rounded-full border border-brand-border">
+          6 Produtos
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
+        
+        <!-- Esfoliante Corporal -->
+        <div class="p-3.5 rounded-2xl border border-stone-200 bg-white/90 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-stone-100 text-stone-700 flex items-center justify-center shrink-0 font-bold border border-stone-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-stone-900">Esfoliante Corporal</h4>
+            <span class="inline-block text-[10px] font-bold text-stone-700 bg-stone-100 px-2 py-0.5 rounded border border-stone-200">Segundas e Quintas</span>
+            <p class="text-[11px] text-stone-600 leading-snug">Seu esfoliante próprio no banho. Afina o estrato córneo e renova a pele.</p>
+          </div>
+        </div>
+
+        <!-- Gel Condutor Incolor -->
+        <div class="p-3.5 rounded-2xl border border-cyan-200 bg-cyan-50/60 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center shrink-0 font-bold border border-cyan-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-cyan-950">Gel Condutor Neutro</h4>
+            <span class="inline-block text-[10px] font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded border border-cyan-200">Exclusivo na Lipocavitação</span>
+            <p class="text-[11px] text-cyan-800 leading-snug">O único meio aceito pela ponteira ultrassônica. Não resseca o equipamento.</p>
+          </div>
+        </div>
+
+        <!-- Pote Lilás: Drenagem -->
+        <div class="p-3.5 rounded-2xl border border-purple-200 bg-purple-50/60 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-purple-200 text-purple-800 flex items-center justify-center shrink-0 font-bold border border-purple-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-purple-950">Pote Lilás: Drenagem Linfática</h4>
+            <span class="inline-block text-[10px] font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded border border-purple-200">Segundas, Quartas e Sextas</span>
+            <p class="text-[11px] text-purple-800 leading-snug">Hidramais. Seguro para a Manta Térmica e plástico filme. Drena líquidos retidos.</p>
+          </div>
+        </div>
+
+        <!-- Pote Verde: Localizada -->
+        <div class="p-3.5 rounded-2xl border border-emerald-200 bg-emerald-50/60 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-emerald-200 text-emerald-800 flex items-center justify-center shrink-0 font-bold border border-emerald-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-emerald-950">Pote Verde: Massagem Localizada</h4>
+            <span class="inline-block text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200">Terças e Quintas</span>
+            <p class="text-[11px] text-emerald-800 leading-snug">Hidramais. Seguro para a Manta Térmica e plástico filme. Ativos modeladores.</p>
+          </div>
+        </div>
+
+        <!-- Pote Vermelho: Termoativado -->
+        <div class="p-3.5 rounded-2xl border border-rose-300 bg-rose-50/70 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-rose-200 text-rose-800 flex items-center justify-center shrink-0 font-bold border border-rose-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-rose-950">Pote Vermelho: Termoativado</h4>
+            <span class="inline-block text-[10px] font-bold text-rose-800 bg-rose-100 px-2 py-0.5 rounded border border-rose-200">Exclusivo aos Sábados</span>
+            <p class="text-[11px] text-rose-800 leading-snug">Nicotinato de metila. <strong>SEM MANTA</strong>. Massagem manual vigorosa livre.</p>
+          </div>
+        </div>
+
+        <!-- Pote Preto: Pimenta Negra -->
+        <div class="p-3.5 rounded-2xl border border-stone-400 bg-stone-100 flex gap-3 items-start shadow-sm">
+          <div class="w-8 h-8 rounded-xl bg-stone-800 text-white flex items-center justify-center shrink-0 font-bold border border-stone-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <div class="space-y-0.5">
+            <h4 class="font-bold text-xs sm:text-sm text-stone-900">Pote Preto: Pimenta Negra</h4>
+            <span class="inline-block text-[10px] font-bold text-stone-900 bg-stone-200 px-2 py-0.5 rounded border border-stone-300">Exclusivo aos Domingos</span>
+            <p class="text-[11px] text-stone-700 leading-snug">Termogênico potente. <strong>SEM MANTA</strong>. Massagem modeladora livre.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 text-xs text-brand-muted">
+      <p>App de Suporte Operacional Estético • Beba bastante água antes e depois de cada sessão.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Audio Context Helper (Web Audio API)
+    function playTone(freq = 640, duration = 0.2, repeats = 1) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        for (let i = 0; i < repeats; i++) {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.25, ctx.currentTime + (i * 0.32));
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.32) + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + (i * 0.32));
+          osc.stop(ctx.currentTime + (i * 0.32) + duration);
+        }
+      } catch (err) {
+        console.warn('Audio contextual playback prevented', err);
+      }
+    }
+
+    // STATE
+    let currentPhase = 1; // 1, 2, 3
+    let currentDay = 'seg'; // seg, ter, qua, qui, sex, sab, dom
+    let currentCycle = 1; // 1, 2, 3
+
+    // Timers
+    let lipoRemaining = 10 * 60;
+    let lipoTimerInterval = null;
+
+    let mantaRemaining = 25 * 60;
+    let mantaTimerInterval = null;
+
+    // LocalStorage Key Helper
+    function getStorageKey() {
+      if (currentPhase === 2) {
+        return `aesthetic_step_phase2_cycle_${currentCycle}`;
+      }
+      return `aesthetic_step_phase${currentPhase}_day_${currentDay}`;
+    }
+
+    function loadSavedSteps() {
+      try {
+        const raw = localStorage.getItem(getStorageKey());
+        if (raw) return JSON.parse(raw);
+      } catch (e) {
+        console.warn(e);
+      }
+      return [false, false, false, false, false];
+    }
+
+    function saveSteps(steps) {
+      try {
+        localStorage.setItem(getStorageKey(), JSON.stringify(steps));
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    // PHASE SELECTION
+    function selectPhase(phase) {
+      currentPhase = phase;
+
+      for (let p = 1; p <= 3; p++) {
+        const btn = document.getElementById(`phaseBtn${p}`);
+        if (p === phase) {
+          btn.classList.add('border-brand-rosedark', 'ring-2', 'ring-brand-rose/50', 'bg-brand-rosebg');
+        } else {
+          btn.classList.remove('border-brand-rosedark', 'ring-2', 'ring-brand-rose/50', 'bg-brand-rosebg');
+        }
+      }
+
+      const weekBox = document.getElementById('weekButtonsBox');
+      const cycleBox = document.getElementById('cycleButtonsBox');
+      const daySectionTitle = document.getElementById('daySectionTitle');
+
+      if (phase === 2) {
+        weekBox.classList.add('hidden');
+        cycleBox.classList.remove('hidden');
+        daySectionTitle.innerText = "2. Posição no Ciclo de 3 Dias";
+        selectCycleIndex(1);
+      } else {
+        weekBox.classList.remove('hidden');
+        cycleBox.classList.add('hidden');
+        daySectionTitle.innerText = "2. Dia da Semana";
+        selectWeekday(currentDay);
+      }
+    }
+
+    // WEEKDAY SELECTION
+    function selectWeekday(dayKey) {
+      currentDay = dayKey;
+      document.querySelectorAll('.day-btn').forEach(btn => {
+        if (btn.getAttribute('data-day') === dayKey) {
+          btn.classList.add('bg-brand-mint', 'text-white', 'border-brand-mint', 'shadow-sm');
+          btn.classList.remove('bg-white', 'text-brand-dark', 'border-brand-border');
+        } else {
+          btn.classList.remove('bg-brand-mint', 'text-white', 'border-brand-mint', 'shadow-sm');
+          btn.classList.add('bg-white', 'text-brand-dark', 'border-brand-border');
+        }
+      });
+      renderPlan();
+    }
+
+    // CYCLE SELECTION (FASE 2)
+    function selectCycleIndex(idx) {
+      currentCycle = idx;
+      document.querySelectorAll('.cycle-btn').forEach(btn => {
+        const c = parseInt(btn.getAttribute('data-cycle'));
+        if (c === idx) {
+          btn.classList.add('border-brand-rosedark', 'ring-2', 'ring-brand-rose/50', 'bg-brand-rosebg');
+        } else {
+          btn.classList.remove('border-brand-rosedark', 'ring-2', 'ring-brand-rose/50', 'bg-brand-rosebg');
+        }
+      });
+      renderPlan();
+    }
+
+    // RENDER DETERMINISTIC PLAN
+    function renderPlan() {
+      const badgeCategory = document.getElementById('badgeCategory');
+      const badgePhase = document.getElementById('badgePhase');
+      const planDayTitle = document.getElementById('planDayTitle');
+      const planDaySub = document.getElementById('planDaySub');
+
+      const cardStep0 = document.getElementById('cardStep0');
+      const tagStep0 = document.getElementById('tagStep0');
+      const descStep0 = document.getElementById('descStep0');
+
+      const cardStep1 = document.getElementById('cardStep1');
+      const cardStep2 = document.getElementById('cardStep2');
+      const titleStep2 = document.getElementById('titleStep2');
+      const tagStep2 = document.getElementById('tagStep2Creme');
+      const descStep2 = document.getElementById('descStep2');
+
+      const cardStep3 = document.getElementById('cardStep3');
+      const descStep3 = document.getElementById('descStep3');
+      const cardStep4 = document.getElementById('cardStep4');
+
+      badgePhase.innerText = `Fase ${currentPhase}`;
+
+      // Reset visibility
+      cardStep0.classList.remove('hidden');
+      cardStep1.classList.remove('hidden');
+      cardStep2.classList.remove('hidden');
+      cardStep3.classList.remove('hidden');
+      cardStep4.classList.remove('hidden');
+
+      titleStep2.innerText = "Passo 2: Massagem com o Marido";
+
+      // ----------------- FASE 1 -----------------
+      if (currentPhase === 1) {
+        if (currentDay === 'seg') {
+          badgeCategory.innerText = "Sessão Completa com Drenagem";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Segunda-feira: Esfoliação & Drenagem";
+          planDaySub.innerText = "Esfoliante Corporal no banho + Lipocavitação + Pote Lilás (Drenagem) + Manta Térmica + Aeróbico.";
+          
+          tagStep0.innerText = "Esfoliante Corporal";
+          descStep0.innerHTML = "Tome banho morno e faça esfoliação circular suave com o <strong>Esfoliante Corporal</strong> na cintura e abdômen. Enxágue completamente e seque 100%.";
+          
+          tagStep2.innerText = "Pote Lilás (Drenagem Linfática)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Drenagem Linfática (Pote Lilás)</strong>. Seu marido faz 3 a 5 min de massagem direcionando para a virilha.";
+          descStep3.innerHTML = "Com o creme lilás aplicado, envolva a cintura com <strong>2 a 3 voltas de plástico filme PVC</strong>. Ajuste a manta térmica por cima e ligue por 25 minutos.";
+
+        } else if (currentDay === 'ter') {
+          badgeCategory.innerText = "Sessão Completa com Localizada";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Terça-feira: Massagem Localizada & Manta";
+          planDaySub.innerText = "Banho higiênico + Lipocavitação + Pote Verde (Localizada) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho higiênico normal sem esfoliação para preservar a barreira cutânea. Seque bem a pele.";
+
+          tagStep2.innerText = "Pote Verde (Massagem Localizada)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Massagem Localizada (Pote Verde)</strong>. Seu marido executa manobras firmes de modelagem da cintura.";
+          descStep3.innerHTML = "Com o creme verde aplicado, envolva com <strong>plástico filme PVC</strong> e acione a manta térmica por 25 minutos.";
+
+        } else if (currentDay === 'qua') {
+          badgeCategory.innerText = "Sessão Completa com Drenagem";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Quarta-feira: Drenagem Linfática & Manta";
+          planDaySub.innerText = "Banho higiênico + Lipocavitação + Pote Lilás (Drenagem) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho higiênico comum sem esfoliação. Seque completamente a pele.";
+
+          tagStep2.innerText = "Pote Lilás (Drenagem Linfática)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Drenagem Linfática (Pote Lilás)</strong>. Seu marido drena os líquidos acumulados até a virilha.";
+          descStep3.innerHTML = "Envolva com <strong>plástico filme PVC</strong> e ligue a manta térmica por 25 minutos.";
+
+        } else if (currentDay === 'qui') {
+          badgeCategory.innerText = "Sessão Completa com Localizada";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Quinta-feira: Esfoliação & Localizada";
+          planDaySub.innerText = "Esfoliante Corporal no banho + Lipocavitação + Pote Verde (Localizada) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Esfoliante Corporal";
+          descStep0.innerHTML = "Tome banho morno e aplique o <strong>Esfoliante Corporal</strong> em movimentos circulares leves. Enxágue bem e seque 100%.";
+
+          tagStep2.innerText = "Pote Verde (Massagem Localizada)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Massagem Localizada (Pote Verde)</strong>. Seu marido modela os flancos e a cintura.";
+          descStep3.innerHTML = "Envolva com <strong>plástico filme PVC</strong> e deixe a manta térmica agir por 25 minutos.";
+
+        } else if (currentDay === 'sex') {
+          badgeCategory.innerText = "Sessão Completa com Drenagem";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Sexta-feira: Drenagem Linfática & Manta";
+          planDaySub.innerText = "Banho higiênico + Lipocavitação + Pote Lilás (Drenagem) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho higiênico comum sem esfoliação. Seque completamente a pele.";
+
+          tagStep2.innerText = "Pote Lilás (Drenagem Linfática)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Drenagem Linfática (Pote Lilás)</strong> para diminuir o inchaço abdominal acumulado na semana.";
+          descStep3.innerHTML = "Envolva com <strong>plástico filme PVC</strong> e acione a manta térmica por 25 minutos.";
+
+        } else if (currentDay === 'sab') {
+          // SÁBADO DETERMINÍSTICO: POTE VERMELHO (SEM MANTA)
+          badgeCategory.innerText = "Descanso Térmico da Manta";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-rose-600 text-white";
+          planDayTitle.innerText = "Sábado: Lipo + Termoativado Exclusivo";
+          planDaySub.innerText = "Banho higiênico + Lipocavitação + Pote Vermelho (Termoativado) [SEM MANTA] + Aeróbico.";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho comum sem esfoliação. Seque completamente a pele.";
+
+          titleStep2.innerText = "Passo 2: Massagem Manual com Pote Vermelho";
+          tagStep2.innerText = "Pote Vermelho (Termoativado)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-rose-100 text-rose-900 border border-rose-300";
+          descStep2.innerHTML = "Aplique o <strong>Creme para Massagem Termoativado (Pote Vermelho)</strong>. Massagem manual rápida e vigorosa (3 a 5 min). A pele ficará avermelhada e quente pelo Nicotinato de Metila. <u>NÃO use manta e NÃO use plástico filme!</u>";
+
+          cardStep3.classList.add('hidden'); // SEM MANTA
+
+        } else if (currentDay === 'dom') {
+          // DOMINGO DETERMINÍSTICO: POTE PRETO (SEM MANTA)
+          badgeCategory.innerText = "Descanso Térmico da Manta";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-stone-800 text-white";
+          planDayTitle.innerText = "Domingo: Lipo + Pimenta Negra Exclusiva";
+          planDaySub.innerText = "Banho higiênico + Lipocavitação + Pote Preto (Pimenta Negra) [SEM MANTA] + Aeróbico.";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho comum sem esfoliação. Seque completamente a pele.";
+
+          titleStep2.innerText = "Passo 2: Massagem Manual com Pote Preto";
+          tagStep2.innerText = "Pote Preto (Pimenta Negra)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-200 text-stone-900 border border-stone-300";
+          descStep2.innerHTML = "Aplique o <strong>Creme Pimenta Negra (Pote Preto)</strong>. Massagem modeladora manual livre. Efeito termogênico ativador. <u>NÃO use manta e NÃO use plástico filme!</u>";
+
+          cardStep3.classList.add('hidden'); // SEM MANTA
+        }
+      }
+
+      // ----------------- FASE 2 (A CADA 3 DIAS) -----------------
+      else if (currentPhase === 2) {
+        if (currentCycle === 1) {
+          badgeCategory.innerText = "Dia de Procedimento com Aparelhos";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Ciclo Dia 1: Sessão Completa";
+          planDaySub.innerText = "Esfoliante Corporal + Lipocavitação + Pote Verde (Localizada) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Esfoliante Corporal";
+          descStep0.innerHTML = "Esfoliação no banho morno com o <strong>Esfoliante Corporal</strong>. Seque completamente a pele.";
+
+          tagStep2.innerText = "Pote Verde (Massagem Localizada)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme de Massagem Localizada (Pote Verde)</strong>. Massagem de 3 a 5 minutos na cintura.";
+          descStep3.innerHTML = "Envolva com plástico filme PVC e coloque a manta térmica por 25 minutos.";
+
+        } else if (currentCycle === 2) {
+          badgeCategory.innerText = "Estímulo Manual Livre";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-rose-600 text-white";
+          planDayTitle.innerText = "Ciclo Dia 2: Termoativado Manual";
+          planDaySub.innerText = "Sem aparelhos. Massagem manual com o Pote Vermelho (Termoativado) [SEM MANTA].";
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho normal sem esfoliação.";
+
+          cardStep1.classList.add('hidden'); // Sem lipocavitação
+          titleStep2.innerText = "Passo 2: Massagem Manual com Pote Vermelho";
+          tagStep2.innerText = "Pote Vermelho (Termoativado)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-rose-100 text-rose-900 border border-rose-300";
+          descStep2.innerHTML = "Massagem manual rápida com o <strong>Creme Termoativado (Pote Vermelho)</strong>. Sem manta térmica.";
+
+          cardStep3.classList.add('hidden'); // Sem manta
+
+        } else {
+          badgeCategory.innerText = "Recuperação & Pausa Total";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-stone-500 text-white";
+          planDayTitle.innerText = "Ciclo Dia 3: Pausa Total & Hidratação";
+          planDaySub.innerText = "Descanso total para pele e tecido adiposo. Foco em beber água (mínimo 2 a 3 litros).";
+
+          cardStep0.classList.add('hidden');
+          cardStep1.classList.add('hidden');
+          cardStep2.classList.add('hidden');
+          cardStep3.classList.add('hidden');
+        }
+      }
+
+      // ----------------- FASE 3 (MANUTENÇÃO 1X SEMANA - SÁBADO) -----------------
+      else if (currentPhase === 3) {
+        if (currentDay === 'sab') {
+          badgeCategory.innerText = "Sessão Semanal de Manutenção";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-mint text-white";
+          planDayTitle.innerText = "Sábado: Manutenção Semanal Master";
+          planDaySub.innerText = "Esfoliante Corporal + Lipocavitação + Pote Verde (Localizada) + Manta Térmica + Aeróbico.";
+
+          tagStep0.innerText = "Esfoliante Corporal";
+          descStep0.innerHTML = "Esfoliação no banho com o <strong>Esfoliante Corporal</strong> para renovação tecidual.";
+
+          tagStep2.innerText = "Pote Verde (Massagem Localizada)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200";
+          descStep2.innerHTML = "Aplique o <strong>Creme de Massagem Localizada (Pote Verde)</strong> com massagem modeladora de 5 minutos.";
+          descStep3.innerHTML = "Envolva com plástico filme PVC e ative a manta térmica por 25 minutos.";
+
+        } else {
+          badgeCategory.innerText = "Dia Sem Aparelhos";
+          badgeCategory.className = "px-3 py-0.5 rounded-full text-xs font-semibold bg-stone-400 text-white";
+          planDayTitle.innerText = "Manutenção: Descanso de Aparelhos";
+          planDaySub.innerText = "Aparelho e manta são reservados unicamente para o sábado na Fase 3.";
+
+          cardStep1.classList.add('hidden');
+          cardStep3.classList.add('hidden');
+
+          tagStep0.innerText = "Banho Higiênico";
+          descStep0.innerHTML = "Banho diário comum sem esfoliação.";
+
+          tagStep2.innerText = "Pote Lilás (Drenagem Linfática)";
+          tagStep2.className = "text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200";
+          descStep2.innerHTML = "Aplicação hidratante simples com o <strong>Creme para Drenagem Linfática (Pote Lilás)</strong>.";
+        }
+      }
+
+      syncStepChecklist();
+    }
+
+    // CHECKLIST SYNCHRONIZATION WITH LOCALSTORAGE
+    function syncStepChecklist() {
+      const saved = loadSavedSteps();
+      for (let i = 0; i <= 4; i++) {
+        const btn = document.getElementById(`check${i}`);
+        if (btn) {
+          if (saved[i]) {
+            btn.classList.add('done');
+          } else {
+            btn.classList.remove('done');
+          }
+        }
+      }
+      updateProgressBar();
+    }
+
+    function toggleStep(idx) {
+      const saved = loadSavedSteps();
+      saved[idx] = !saved[idx];
+      saveSteps(saved);
+
+      const btn = document.getElementById(`check${idx}`);
+      if (saved[idx]) {
+        btn.classList.add('done');
+        playTone(780, 0.12);
+      } else {
+        btn.classList.remove('done');
+      }
+      updateProgressBar();
+    }
+
+    function resetDayChecklist() {
+      saveSteps([false, false, false, false, false]);
+      for (let i = 0; i <= 4; i++) {
+        const btn = document.getElementById(`check${i}`);
+        if (btn) btn.classList.remove('done');
+      }
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      let visible = 0;
+      let checked = 0;
+      const saved = loadSavedSteps();
+
+      for (let i = 0; i <= 4; i++) {
+        const card = document.getElementById(`cardStep${i}`);
+        if (card && !card.classList.contains('hidden')) {
+          visible++;
+          if (saved[i]) checked++;
+        }
+      }
+
+      const pct = visible > 0 ? (checked / visible) * 100 : 0;
+      document.getElementById('progressBar').style.width = `${pct}%`;
+      document.getElementById('progressSummaryLabel').innerText = `Passos: ${checked} de ${visible}`;
+    }
+
+    // TIMERS LOGIC
+    function formatClock(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    // Timer Lipocavitação (10 min)
+    function startLipoTimer() {
+      if (lipoTimerInterval) return;
+      playTone(520, 0.15);
+      lipoTimerInterval = setInterval(() => {
+        if (lipoRemaining > 0) {
+          lipoRemaining--;
+          document.getElementById('timerLipoDisplay').innerText = formatClock(lipoRemaining);
+        } else {
+          clearInterval(lipoTimerInterval);
+          lipoTimerInterval = null;
+          playTone(800, 0.35, 3);
+          const saved = loadSavedSteps();
+          saved[1] = true;
+          saveSteps(saved);
+          syncStepChecklist();
+        }
+      }, 1000);
+    }
+
+    function pauseLipoTimer() {
+      clearInterval(lipoTimerInterval);
+      lipoTimerInterval = null;
+    }
+
+    function resetLipoTimer() {
+      pauseLipoTimer();
+      lipoRemaining = 10 * 60;
+      document.getElementById('timerLipoDisplay').innerText = "10:00";
+    }
+
+    // Timer Manta (25 min)
+    function startMantaTimer() {
+      if (mantaTimerInterval) return;
+      playTone(520, 0.15);
+      mantaTimerInterval = setInterval(() => {
+        if (mantaRemaining > 0) {
+          mantaRemaining--;
+          document.getElementById('timerMantaDisplay').innerText = formatClock(mantaRemaining);
+        } else {
+          clearInterval(mantaTimerInterval);
+          mantaTimerInterval = null;
+          playTone(800, 0.35, 3);
+          const saved = loadSavedSteps();
+          saved[3] = true;
+          saveSteps(saved);
+          syncStepChecklist();
+        }
+      }, 1000);
+    }
+
+    function pauseMantaTimer() {
+      clearInterval(mantaTimerInterval);
+      mantaTimerInterval = null;
+    }
+
+    function resetMantaTimer() {
+      pauseMantaTimer();
+      mantaRemaining = 25 * 60;
+      document.getElementById('timerMantaDisplay').innerText = "25:00";
+    }
+
+    // ON LOAD
+    window.onload = function() {
+      selectPhase(1);
+      selectWeekday('seg');
+    };
+  </script>
+</body>
+</html>
