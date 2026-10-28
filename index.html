@@ -3,294 +3,959 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Protocolo Corporal Estético & Calculadora de Métricas</title>
-  
-  <!-- Tailwind CSS CDN -->
+  <title>Protocolo Corporal Avançado - 3-em-1 & Termoterapia</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter & Outfit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            app: {
-              bg: '#0F131A',
-              card: '#161D27',
-              inner: '#1C2533',
-              border: '#293547',
-              borderLight: '#394A63',
-              text: '#E6EDF5',
-              muted: '#8E9EB5',
-              rose: '#E28A75',
-              roseDark: '#C76A54',
-              roseSoft: 'rgba(226, 138, 117, 0.14)',
-              green: '#2BB673',
-              greenSoft: 'rgba(43, 182, 115, 0.16)',
-              purple: '#9F7AEA',
-              purpleSoft: 'rgba(159, 122, 234, 0.16)',
-              red: '#EF4444',
-              redSoft: 'rgba(239, 68, 68, 0.14)'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Outfit', 'sans-serif']
+            appDark: '#0f141c',
+            appCard: '#161e2b',
+            appInner: '#111722',
+            appBorder: '#243144',
+            appAccent: '#e28a75',
+            appGreen: '#2bb673',
+            appPurple: '#9f7aea',
+            appRed: '#e53e3e',
+            appBlue: '#38bdf8'
           }
         }
       }
-    }
+    };
   </script>
-
   <style>
     body {
-      background-color: #0F131A;
-      color: #E6EDF5;
-      font-family: 'Inter', sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      background-color: #0f141c;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    .custom-scroll::-webkit-scrollbar {
-      height: 6px;
-      width: 6px;
+    .step-chk:checked + label {
+      text-decoration: line-through;
+      opacity: 0.6;
     }
-    .custom-scroll::-webkit-scrollbar-track {
-      background: #161D27;
-      border-radius: 4px;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: #293547;
-      border-radius: 4px;
-    }
-    .step-check.done {
-      background-color: #2BB673 !important;
-      border-color: #2BB673 !important;
-      color: #0F131A !important;
-    }
-    .delta-neg {
-      color: #4ADE80;
-    }
-    .delta-pos {
-      color: #F87171;
-    }
-    .delta-zero {
-      color: #94A3B8;
-    }
+    .delta-neg { color: #4ade80; font-weight: 700; }
+    .delta-pos { color: #f87171; font-weight: 700; }
+    .delta-zero { color: #94a3b8; }
   </style>
 </head>
-<body class="p-3 sm:p-6 lg:p-8 antialiased selection:bg-app-rose selection:text-white">
-
-  <div class="max-w-3xl mx-auto space-y-6">
-
-    <!-- Top Header -->
-    <header class="bg-app-card border border-app-border rounded-3xl p-5 sm:p-7 relative overflow-hidden shadow-2xl">
-      <div class="absolute -top-16 -right-16 w-44 h-44 bg-app-rose/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-16 -left-16 w-44 h-44 bg-app-purple/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-2.5">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-app-roseSoft border border-app-rose/30 text-app-rose text-xs font-semibold uppercase tracking-wider">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Protocolo Estético & Medidas
-        </span>
-        <a href="#section-calculator" class="text-xs font-medium text-app-rose hover:text-white transition flex items-center gap-1 bg-app-inner border border-app-border px-3 py-1 rounded-xl">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-          Ir para Calculadora de Print
-        </a>
-      </div>
-
-      <h1 class="font-display font-semibold text-2xl sm:text-3xl text-white tracking-tight">
-        Guia Operacional Diário
-      </h1>
-      <p class="text-app-muted text-xs sm:text-sm mt-1 max-w-xl">
-        Planejamento sem dúvidas para Lipocavitação, Cosméticos Hidramais, Manta Térmica, Treino e Comparativo de Medidas.
-      </p>
-
-      <!-- Global Progress Bar -->
-      <div class="mt-4 bg-app-inner p-3 rounded-2xl border border-app-border flex items-center justify-between gap-4">
-        <span class="text-xs font-medium text-app-muted" id="progressSummaryLabel">Passos: 0 de 5</span>
-        <div class="w-36 sm:w-52 h-2.5 bg-black/40 rounded-full overflow-hidden border border-app-border">
-          <div id="progressBar" class="h-full bg-app-green transition-all duration-300 w-0"></div>
+<body class="p-3 sm:p-6 antialiased">
+  <div class="max-w-3xl mx-auto space-y-5">
+    
+    <!-- Header -->
+    <header class="bg-appCard border border-appBorder rounded-2xl p-5 text-center shadow-lg">
+      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-appAccent/20 text-appAccent border border-appAccent/40 mb-2">
+        Dispositivo 3-em-1 &bull; Manta &bull; Hidramais
+      </span>
+      <h1 class="text-xl sm:text-2xl font-bold text-white">Protocolo Corporal Avançado</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Guia operacional diário de aplicação, controle de fases e calculadora para prints.</p>
+      
+      <!-- Barra de Progresso Global do Dia -->
+      <div class="mt-4 pt-3 border-t border-appBorder/80 flex items-center justify-between text-xs text-slate-300">
+        <span id="txt-progresso">0/0 Concluídos</span>
+        <div class="w-48 bg-appInner h-2.5 rounded-full overflow-hidden border border-appBorder">
+          <div id="bar-progresso" class="bg-appAccent h-full w-0 transition-all duration-300"></div>
         </div>
       </div>
     </header>
 
-    <!-- 1. Regra de Ouro / Alerta de Segurança -->
-    <section class="bg-app-redSoft/80 border border-app-red/40 rounded-3xl p-5 flex flex-col sm:flex-row items-start gap-4 shadow-xl">
-      <div class="w-10 h-10 rounded-2xl bg-app-red/20 text-app-red flex items-center justify-center shrink-0">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+    <!-- Guardrail de Segurança -->
+    <section class="bg-red-950/40 border-l-4 border-appRed rounded-xl p-4 text-xs sm:text-sm text-red-200 space-y-1.5">
+      <div class="font-bold flex items-center gap-2 text-red-300 uppercase tracking-wide">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        Regras Inegociáveis de Segurança
       </div>
-      <div class="text-xs sm:text-sm text-red-200 space-y-1.5 leading-relaxed">
-        <h2 class="font-bold text-red-100 tracking-wider uppercase text-xs flex items-center gap-2">
-          Regras de Segurança Inegociáveis
-        </h2>
-        <ul class="list-disc list-inside space-y-1 text-red-300/90">
-          <li><strong>Aparelho de Lipocavitação:</strong> Use <u class="text-white font-bold">SOMENTE</u> Gel Condutor Neutro Incolor. Jamais coloque cremes na ponteira ultrassônica.</li>
-          <li><strong>Sob a Manta Térmica:</strong> Use <u class="text-white font-bold">SOMENTE</u> o Pote Verde (Localizada) ou Pote Lilás (Drenagem Linfática) envoltos em plástico filme PVC.</li>
-          <li><strong>NUNCA na Manta Térmica:</strong> <u class="text-red-400 font-bold">PROIBIDO</u> usar o Pote Vermelho (Termoativado) ou Pote Preto (Pimenta Negra) sob a manta ou plástico filme (risco de queimadura química grave).</li>
-        </ul>
-      </div>
+      <p>1. <strong>Lipocavitação:</strong> use <span class="underline font-bold text-white">apenas Gel Condutor Neutro</span>. Nunca aplique cremes pesados na ponteira de inox.</p>
+      <p>2. <strong>Manta Térmica + Plástico Filme:</strong> use <span class="underline font-bold text-white">apenas Creme Verde ou Lilás</span>.</p>
+      <p>3. <strong>Proibido sob a Manta:</strong> Pote Vermelho (Termoativado) e Preto (Pimenta Negra) geram queimaduras térmico-químicas severas se aquecidos pela manta.</p>
     </section>
 
-    <!-- 2. Seletor de Fases & Ciclos -->
-    <section class="bg-app-card border border-app-border rounded-3xl p-5 sm:p-6 space-y-5">
-      <div>
-        <label class="block text-[11px] font-bold uppercase tracking-wider text-app-muted mb-3">
-          1. Fase do Tratamento
-        </label>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          <button onclick="selectPhase(1)" id="phaseBtn1" class="phase-btn p-3.5 rounded-2xl border border-app-border text-left transition-all bg-app-inner hover:border-app-rose text-white">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-app-rose">Fase 1</span>
-            <span class="block text-xs sm:text-sm font-bold mt-0.5">Ataque Diário</span>
-            <span class="block text-[10px] text-app-muted">Semanas 1 a 3 (7x)</span>
-          </button>
-          <button onclick="selectPhase(2)" id="phaseBtn2" class="phase-btn p-3.5 rounded-2xl border border-app-border text-left transition-all bg-app-inner hover:border-app-rose text-white">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-app-rose">Fase 2</span>
-            <span class="block text-xs sm:text-sm font-bold mt-0.5">Ciclo 31 Dias</span>
-            <span class="block text-[10px] text-app-muted">D0 a D30 (2d pausa)</span>
-          </button>
-          <button onclick="selectPhase(3)" id="phaseBtn3" class="phase-btn p-3.5 rounded-2xl border border-app-border text-left transition-all bg-app-inner hover:border-app-rose text-white">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-app-rose">Fase 3</span>
-            <span class="block text-xs sm:text-sm font-bold mt-0.5">Manutenção 1x</span>
-            <span class="block text-[10px] text-app-muted">Semana 8+ (Equilíbrio)</span>
-          </button>
-          <button onclick="selectPhase(4)" id="phaseBtn4" class="phase-btn p-3.5 rounded-2xl border border-app-border text-left transition-all bg-app-inner hover:border-app-rose text-white">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-app-rose">Fase 4</span>
-            <span class="block text-xs sm:text-sm font-bold mt-0.5">Consolidação</span>
-            <span class="block text-[10px] text-app-muted">Pós-Objetivo (Quinzenal)</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Sub-seletores dependendo da fase -->
-      <div>
-        <label class="block text-[11px] font-bold uppercase tracking-wider text-app-muted mb-2.5" id="cycleSelectorTitle">
-          2. Dia da Semana
-        </label>
-
-        <!-- Weekdays Buttons (Fase 1 e Fase 3) -->
-        <div id="weekButtonsBox" class="flex flex-wrap gap-2">
-          <button onclick="selectWeekday('seg')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="seg">Segunda</button>
-          <button onclick="selectWeekday('ter')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="ter">Terça</button>
-          <button onclick="selectWeekday('qua')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="qua">Quarta</button>
-          <button onclick="selectWeekday('qui')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="qui">Quinta</button>
-          <button onclick="selectWeekday('sex')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="sex">Sexta</button>
-          <button onclick="selectWeekday('sab')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="sab">Sábado</button>
-          <button onclick="selectWeekday('dom')" class="day-btn px-3 py-2 rounded-xl text-xs font-semibold border border-app-border bg-app-inner transition" data-day="dom">Domingo</button>
-        </div>
-
-        <!-- Fase 2: Grelha 31 Dias (0 a 30) -->
-        <div id="fase2GridBox" class="hidden space-y-2">
-          <p class="text-[11px] text-app-muted">
-            Dias verdes têm Lipocavitação ativa (D0, D3, D6...). Dias intermediários têm repouso total de aparelhos e gel.
-          </p>
-          <div class="grid grid-cols-7 sm:grid-cols-11 gap-1.5 max-h-44 overflow-y-auto p-1 custom-scroll bg-app-inner/60 rounded-2xl border border-app-border" id="grid31Buttons">
-            <!-- Gerado via JS de 0 a 30 -->
-          </div>
-        </div>
-
-        <!-- Fase 4: Seletor Semana A / Semana B -->
-        <div id="fase4WeekBox" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <button onclick="selectFase4Week('A')" id="btnF4WeekA" class="p-3.5 rounded-2xl border border-app-border text-left transition bg-app-inner text-white">
-            <span class="block font-bold text-xs sm:text-sm text-app-rose">Semana A (Sessão Master Quinzenal)</span>
-            <span class="text-[11px] text-app-muted">Esfoliante + Lipocavitação (10m) + Pote Verde + Manta (25m) + Treino.</span>
-          </button>
-          <button onclick="selectFase4Week('B')" id="btnF4WeekB" class="p-3.5 rounded-2xl border border-app-border text-left transition bg-app-inner text-white">
-            <span class="block font-bold text-xs sm:text-sm text-app-green">Semana B (Cuidados Cutâneos Rápidos)</span>
-            <span class="text-[11px] text-app-muted">Sem aparelhos e sem gel. Absorção rápida pós-banho + tônus abdominal.</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Checklist de Passos do Dia -->
-    <main class="bg-app-card border border-app-border rounded-3xl p-5 sm:p-7 relative">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-app-border">
-        <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span id="badgeCategory" class="px-3 py-0.5 rounded-full text-xs font-semibold bg-app-greenSoft text-app-green border border-app-green/30">
-              Sessão Completa
-            </span>
-            <span id="badgePhase" class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-app-roseSoft text-app-rose border border-app-rose/30">
-              Fase 1
-            </span>
-          </div>
-          <h2 id="planDayTitle" class="font-display font-semibold text-lg sm:text-xl text-white">
-            Segunda-feira: Protocolo com Drenagem
-          </h2>
-          <p id="planDaySub" class="text-xs text-app-muted mt-0.5">
-            Esfoliante Corporal no banho + Lipocavitação com Gel + Pote Lilás sob Manta + Aeróbico.
-          </p>
-        </div>
-
-        <button onclick="resetDayChecklist()" class="self-start sm:self-center text-xs text-app-muted hover:text-white font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-app-inner border border-app-border transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          Reiniciar Passos
+    <!-- Seletor de Fases -->
+    <section class="bg-appCard border border-appBorder rounded-2xl p-4 space-y-3">
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-400">1. Selecionar Fase</div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button id="btn-fase-1" onclick="mudarFase(1)" class="p-3 rounded-xl border border-appBorder text-left text-xs bg-appInner hover:border-appAccent transition">
+          <span class="block font-bold text-appAccent">Fase 1</span>
+          <span class="text-white font-semibold">Ataque Diário</span>
+          <span class="block text-[10px] text-slate-400">7x/semana</span>
+        </button>
+        <button id="btn-fase-2" onclick="mudarFase(2)" class="p-3 rounded-xl border border-appBorder text-left text-xs bg-appInner hover:border-appAccent transition">
+          <span class="block font-bold text-appAccent">Fase 2</span>
+          <span class="text-white font-semibold">Ciclo 31 Dias</span>
+          <span class="block text-[10px] text-slate-400">D0 ao D30 (2d pausa)</span>
+        </button>
+        <button id="btn-fase-3" onclick="mudarFase(3)" class="p-3 rounded-xl border border-appBorder text-left text-xs bg-appInner hover:border-appAccent transition">
+          <span class="block font-bold text-appAccent">Fase 3</span>
+          <span class="text-white font-semibold">Manutenção</span>
+          <span class="block text-[10px] text-slate-400">Semanal (1x Master)</span>
+        </button>
+        <button id="btn-fase-4" onclick="mudarFase(4)" class="p-3 rounded-xl border border-appBorder text-left text-xs bg-appInner hover:border-appAccent transition">
+          <span class="block font-bold text-appAccent">Fase 4</span>
+          <span class="text-white font-semibold">Consolidação</span>
+          <span class="block text-[10px] text-slate-400">Pós-Objetivo (Quinzenal)</span>
         </button>
       </div>
 
-      <!-- Step Cards Container -->
-      <div class="mt-5 space-y-3.5" id="stepListContainer">
+      <!-- Controles Secundários -->
+      <div id="sub-seletor" class="pt-2 border-t border-appBorder/60">
+        <!-- Dias da semana para Fase 1 e 3 -->
+        <div id="wrap-dias-semana" class="flex gap-1.5 overflow-x-auto pb-1"></div>
+        <!-- Grade D0 a D30 para Fase 2 -->
+        <div id="wrap-fase2-grid" class="hidden space-y-2">
+          <p class="text-[11px] text-slate-400">Dias com borda verde possuem Lipocavitação ativa (intervalo fixo de 2 dias de repouso).</p>
+          <div id="grid-31-dias" class="grid grid-cols-7 sm:grid-cols-11 gap-1 max-h-36 overflow-y-auto p-1 bg-appInner rounded-xl border border-appBorder"></div>
+        </div>
+        <!-- Alternador Semana A / B para Fase 4 -->
+        <div id="wrap-fase4-quinzena" class="hidden grid grid-cols-2 gap-2">
+          <button id="btn-f4-a" onclick="mudarSemanaF4('A')" class="p-2.5 rounded-xl border border-appBorder text-xs text-left bg-appInner">
+            <strong class="block text-appAccent">Semana A (Master)</strong>
+            <span class="text-[11px] text-slate-300">Com aparelhos + Manta</span>
+          </button>
+          <button id="btn-f4-b" onclick="mudarSemanaF4('B')" class="p-2.5 rounded-xl border border-appBorder text-xs text-left bg-appInner">
+            <strong class="block text-appGreen">Semana B (Cutânea)</strong>
+            <span class="text-[11px] text-slate-300">Sem aparelhos / Sem gel</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-        <!-- Passo 0: Preparo / Banho -->
-        <article class="p-4 rounded-2xl bg-app-inner border border-app-border" id="cardStep0">
-          <div class="flex items-start gap-3.5">
-            <button onclick="toggleStep(0)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-app-borderLight flex items-center justify-center text-transparent hover:border-app-green transition shrink-0" id="check0">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-            </button>
-            <div class="flex-1 space-y-1">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <h3 class="font-bold text-sm text-white flex items-center gap-2">
-                  <span>Passo 0: Higiene & Preparo da Pele</span>
-                  <span id="tagStep0" class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-800 text-stone-200 border border-stone-600">
-                    Esfoliante Corporal
-                  </span>
-                </h3>
+    <!-- Card de Passos do Dia -->
+    <main class="bg-appCard border border-appBorder rounded-2xl p-5 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-appBorder pb-3">
+        <div>
+          <span id="badge-status-dia" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-appGreen/20 text-appGreen border border-appGreen/40">Sessão Completa</span>
+          <h2 id="titulo-dia" class="text-base sm:text-lg font-bold text-white mt-1">Carregando plano...</h2>
+          <p id="subtitulo-dia" class="text-xs text-slate-400">Instruções automáticas da rotina.</p>
+        </div>
+        <button onclick="zerarChecksDia()" class="text-xs px-3 py-1.5 rounded-lg bg-appInner border border-appBorder text-slate-300 hover:text-white transition">
+          Resetar Tarefas
+        </button>
+      </div>
+
+      <!-- Container dos Passos -->
+      <div id="lista-passos" class="space-y-3"></div>
+    </main>
+
+    <!-- Calculadora de Métricas & Card para Print -->
+    <section class="bg-appCard border border-appBorder rounded-2xl p-5 space-y-4">
+      <div class="border-b border-appBorder pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-white">Calculadora de Métricas & Comparativo</h2>
+          <p class="text-xs text-slate-400">Gere um cartão pronto para captura de tela (print) para salvar e comparar fotos e medidas.</p>
+        </div>
+        <button onclick="carregarExemploMetricas()" class="text-xs px-2.5 py-1 rounded bg-appInner border border-appBorder text-appAccent hover:text-white">Exemplo</button>
+      </div>
+
+      <form id="form-metricas" onsubmit="gerarCartaoPrint(event)" class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div>
+            <label class="block text-slate-400 mb-1">Data</label>
+            <input type="date" id="m-data" class="w-full bg-appInner border border-appBorder rounded-lg p-2 text-white">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Altura (cm)</label>
+            <input type="number" step="0.5" id="m-altura" placeholder="Ex: 165" class="w-full bg-appInner border border-appBorder rounded-lg p-2 text-white">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Peso Atual (kg)</label>
+            <input type="number" step="0.1" id="m-peso-atual" placeholder="Ex: 68.5" class="w-full bg-appInner border border-appBorder rounded-lg p-2 text-white">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Peso Anterior (kg)</label>
+            <input type="number" step="0.1" id="m-peso-anterior" placeholder="Ex: 70.0" class="w-full bg-appInner border border-appBorder rounded-lg p-2 text-white">
+          </div>
+        </div>
+
+        <div class="bg-appInner/60 p-3 rounded-xl border border-appBorder space-y-2">
+          <div class="grid grid-cols-3 gap-2 font-bold text-slate-400 pb-1 border-b border-appBorder/50">
+            <span>Medida</span>
+            <span class="text-center">Atual (cm)</span>
+            <span class="text-center">Anterior (Ref. cm)</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <span class="text-slate-200">Cintura (Umbigo)</span>
+            <input type="number" step="0.5" id="m-cintura-atual" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+            <input type="number" step="0.5" id="m-cintura-anterior" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <span class="text-slate-200">Cintura Alta</span>
+            <input type="number" step="0.5" id="m-alta-atual" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+            <input type="number" step="0.5" id="m-alta-anterior" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <span class="text-slate-200">Abdômen Inferior</span>
+            <input type="number" step="0.5" id="m-abd-atual" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+            <input type="number" step="0.5" id="m-abd-anterior" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <span class="text-slate-200">Quadril</span>
+            <input type="number" step="0.5" id="m-quadril-atual" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+            <input type="number" step="0.5" id="m-quadril-anterior" placeholder="cm" class="bg-appCard border border-appBorder rounded-lg p-1.5 text-center text-white">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-appAccent hover:opacity-90 font-bold text-slate-900 transition text-xs sm:text-sm">
+          Calcular & Gerar Cartão para Print 📸
+        </button>
+      </form>
+
+      <!-- Cartão Gerado para Print -->
+      <div id="cartao-print" class="hidden bg-[#0a0d13] border-2 border-appAccent/60 rounded-2xl p-5 space-y-4 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-appBorder/80 pb-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-appAccent tracking-wider block">Relatório Fotográfico & Medidas</span>
+            <h3 class="text-base sm:text-lg font-bold text-white" id="p-titulo-data">Registro • --/--/----</h3>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-appCard border border-appBorder text-[10px] text-slate-300">Pronto para Print</span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="bg-appCard p-2.5 rounded-xl border border-appBorder">
+            <span class="block text-[10px] text-slate-400">IMC</span>
+            <strong id="p-imc" class="text-sm sm:text-base text-white font-mono">--</strong>
+            <span id="p-imc-sub" class="block text-[9px] text-appGreen">--</span>
+          </div>
+          <div class="bg-appCard p-2.5 rounded-xl border border-appBorder">
+            <span class="block text-[10px] text-slate-400">RCQ (Cint/Quad)</span>
+            <strong id="p-rcq" class="text-sm sm:text-base text-white font-mono">--</strong>
+            <span id="p-rcq-sub" class="block text-[9px] text-appAccent">--</span>
+          </div>
+          <div class="bg-appCard p-2.5 rounded-xl border border-appBorder">
+            <span class="block text-[10px] text-slate-400">Variação de Peso</span>
+            <strong id="p-peso-var" class="text-sm sm:text-base font-mono">--</strong>
+            <span id="p-peso-atual-txt" class="block text-[9px] text-slate-400">--</span>
+          </div>
+        </div>
+
+        <div class="space-y-1.5" id="p-tabela-medidas"></div>
+
+        <div class="pt-2 border-t border-appBorder/80 text-[10px] text-slate-400 flex items-center justify-between">
+          <span>Protocolo: 3-em-1 + Hidramais + Manta</span>
+          <span class="text-appAccent">Gordura Mobilizada $\rightarrow$ Treino</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Audio Context Helper (sem dependências externas)
+    function playBeep(freq = 600, dur = 0.2, count = 1) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        for (let i = 0; i < count; i++) {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.2, ctx.currentTime + (i * 0.3));
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.3) + dur);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + (i * 0.3));
+          osc.stop(ctx.currentTime + (i * 0.3) + dur);
+        }
+      } catch (e) {
+        console.warn('Audio contextual bloqueado', e);
+      }
+    }
+
+    // Estado da Aplicação
+    const app = {
+      fase: 1,
+      diaSemana: 'Seg',
+      dia31: 0,
+      semanaF4: 'A',
+      checks: {}
+    };
+
+    // Estados dos cronômetros
+    const timers = {
+      lipo: { id: null, total: 600, rem: 600, running: false },
+      manta: { id: null, total: 1500, rem: 1500, running: false },
+      ems: { id: null, total: 900, rem: 900, running: false }
+    };
+
+    const diasSemana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'];
+
+    function getStorageKey(passoIdx) {
+      return `prot_f${app.fase}_w${app.diaSemana}_d${app.dia31}_s4${app.semanaF4}_p${passoIdx}`;
+    }
+
+    function toggleTimer(tipo) {
+      const t = timers[tipo];
+      const btn = document.getElementById(`btn-timer-${tipo}`);
+      const disp = document.getElementById(`disp-timer-${tipo}`);
+      if (!btn || !disp) return;
+
+      if (t.running) {
+        clearInterval(t.id);
+        t.running = false;
+        btn.innerText = 'Iniciar';
+      } else {
+        t.running = true;
+        btn.innerText = 'Pausar';
+        t.id = setInterval(() => {
+          if (t.rem > 0) {
+            t.rem--;
+            const m = String(Math.floor(t.rem / 60)).padStart(2, '0');
+            const s = String(t.rem % 60).padStart(2, '0');
+            disp.innerText = `${m}:${s}`;
+          } else {
+            clearInterval(t.id);
+            t.running = false;
+            btn.innerText = 'Concluído';
+            playBeep(850, 0.35, 3);
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer(tipo) {
+      const t = timers[tipo];
+      clearInterval(t.id);
+      t.running = false;
+      t.rem = t.total;
+      const m = String(Math.floor(t.total / 60)).padStart(2, '0');
+      const s = String(t.total % 60).padStart(2, '0');
+      const disp = document.getElementById(`disp-timer-${tipo}`);
+      const btn = document.getElementById(`btn-timer-${tipo}`);
+      if (disp) disp.innerText = `${m}:${s}`;
+      if (btn) btn.innerText = 'Iniciar';
+    }
+
+    function mudarFase(faseNum) {
+      app.fase = faseNum;
+      for (let i = 1; i <= 4; i++) {
+        const b = document.getElementById(`btn-fase-${i}`);
+        if (i === faseNum) {
+          b.classList.add('border-appAccent', 'bg-appAccent/15');
+        } else {
+          b.classList.remove('border-appAccent', 'bg-appAccent/15');
+        }
+      }
+
+      const wrapSemana = document.getElementById('wrap-dias-semana');
+      const wrapGrid31 = document.getElementById('wrap-fase2-grid');
+      const wrapF4 = document.getElementById('wrap-fase4-quinzena');
+
+      wrapSemana.classList.toggle('hidden', faseNum === 2 || faseNum === 4);
+      wrapGrid31.classList.toggle('hidden', faseNum !== 2);
+      wrapF4.classList.toggle('hidden', faseNum !== 4);
+
+      renderizarPlano();
+    }
+
+    function selecionarDiaSemana(dia) {
+      app.diaSemana = dia;
+      document.querySelectorAll('.btn-semana').forEach(b => {
+        const ativo = b.dataset.dia === dia;
+        b.classList.toggle('bg-appAccent', ativo);
+        b.classList.toggle('text-slate-900', ativo);
+        b.classList.toggle('font-bold', ativo);
+        b.classList.toggle('bg-appInner', !ativo);
+        b.classList.toggle('text-slate-300', !ativo);
+      });
+      renderizarPlano();
+    }
+
+    function selecionarDia31(num) {
+      app.dia31 = num;
+      document.querySelectorAll('.btn-d31').forEach(b => {
+        const n = parseInt(b.dataset.dia);
+        const ativo = n === num;
+        b.classList.toggle('bg-appAccent', ativo);
+        b.classList.toggle('text-slate-900', ativo);
+        b.classList.toggle('font-bold', ativo);
+        b.classList.toggle('bg-appInner', !ativo);
+      });
+      renderizarPlano();
+    }
+
+    function mudarSemanaF4(tipo) {
+      app.semanaF4 = tipo;
+      document.getElementById('btn-f4-a').classList.toggle('border-appAccent', tipo === 'A');
+      document.getElementById('btn-f4-a').classList.toggle('bg-appAccent/15', tipo === 'A');
+      document.getElementById('btn-f4-b').classList.toggle('border-appGreen', tipo === 'B');
+      document.getElementById('btn-f4-b').classList.toggle('bg-appGreen/15', tipo === 'B');
+      renderizarPlano();
+    }
+
+    function obterConfiguracaoDia() {
+      // FASE 1
+      if (app.fase === 1) {
+        if (app.diaSemana === 'Seg') {
+          return {
+            titulo: 'Segunda-feira: Esfoliação & Drenagem',
+            sub: 'Esfoliante no banho + Lipo/Infrared (10m) + Pote Lilás sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: true,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás (Drenagem)</span>',
+            cremeDesc: 'Creme para Drenagem Linfática Hidramais com manobras drenantes.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        }
+        if (app.diaSemana === 'Ter' || app.diaSemana === 'Sex') {
+          return {
+            titulo: `${app.diaSemana === 'Ter' ? 'Terça-feira' : 'Sexta-feira'}: Massagem Localizada & Manta`,
+            sub: 'Banho comum + Lipo/Infrared (10m) + Pote Verde sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: false,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Pote Verde (Localizada)</span>',
+            cremeDesc: 'Creme para Massagem Localizada Hidramais com foco em modelagem.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        }
+        if (app.diaSemana === 'Qua') {
+          return {
+            titulo: 'Quarta-feira: Drenagem Linfática & Manta',
+            sub: 'Banho comum + Lipo/Infrared (10m) + Pote Lilás sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: false,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás (Drenagem)</span>',
+            cremeDesc: 'Creme para Drenagem Linfática Hidramais.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        }
+        if (app.diaSemana === 'Qui') {
+          return {
+            titulo: 'Quinta-feira: Esfoliação & Drenagem',
+            sub: 'Esfoliante no banho + Lipo/Infrared (10m) + Pote Lilás sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: true,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás (Drenagem)</span>',
+            cremeDesc: 'Creme para Drenagem Linfática Hidramais.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        }
+        if (app.diaSemana === 'Sab') {
+          return {
+            titulo: 'Sábado: Lipo/Infrared + Pote Vermelho Livre',
+            sub: 'Lipo/Infrared com Gel Neutro (10m) + Pote Vermelho em massagem manual (SEM MANTA) + Treino.',
+            lipo: true,
+            scrub: false,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">Pote Vermelho (Termoativado)</span>',
+            cremeDesc: 'Massagem manual rápida vigorosa. Não usar manta nem plástico filme.',
+            manta: false,
+            ems: false,
+            marido: false
+          };
+        }
+        if (app.diaSemana === 'Dom') {
+          return {
+            titulo: 'Domingo: Lipo/Infrared + Pote Preto Livre',
+            sub: 'Lipo/Infrared com Gel Neutro (10m) + Pote Preto em massagem manual (SEM MANTA) + Treino.',
+            lipo: true,
+            scrub: false,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-900 text-zinc-300 border border-zinc-700">Pote Preto (Pimenta Negra)</span>',
+            cremeDesc: 'Massagem manual estimulante. Não usar manta nem plástico filme.',
+            manta: false,
+            ems: false,
+            marido: false
+          };
+        }
+      }
+
+      // FASE 2
+      if (app.fase === 2) {
+        const d = app.dia31;
+        const isLipo = (d % 3 === 0);
+        const isScrub = (d % 7 === 0);
+
+        if (isLipo) {
+          const isVerde = (d % 6 === 0);
+          return {
+            titulo: `Dia ${d}: Sessão Ativa de Dispositivos`,
+            sub: `${isScrub ? 'Esfoliante + ' : ''}Lipo/Infrared (10m) + ${isVerde ? 'Pote Verde' : 'Pote Lilás'} sob Manta (25m) + Treino.`,
+            lipo: true,
+            scrub: isScrub,
+            cremeTag: isVerde 
+              ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Pote Verde (Localizada)</span>'
+              : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás (Drenagem)</span>',
+            cremeDesc: isVerde ? 'Massagem localizada modeladora com marido sob a manta.' : 'Drenagem linfática com marido sob a manta.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        } else {
+          const isFirstPause = (d % 3 === 1);
+          return {
+            titulo: `Dia ${d}: Repouso de Ultrassom & Manta`,
+            sub: `Sem ultrassom e sem gel neutro. Massagem manual com ${isFirstPause ? 'Pote Vermelho' : 'Pote Preto'} + EMS Opcional (15m).`,
+            lipo: false,
+            scrub: false,
+            cremeTag: isFirstPause
+              ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">Pote Vermelho (Termoativado)</span>'
+              : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-900 text-zinc-300 border border-zinc-700">Pote Preto (Pimenta Negra)</span>',
+            cremeDesc: 'Massagem manual rápida livre (sem manta térmica).',
+            manta: false,
+            ems: true,
+            marido: false
+          };
+        }
+      }
+
+      // FASE 3
+      if (app.fase === 3) {
+        if (app.diaSemana === 'Sab') {
+          return {
+            titulo: 'Sábado: Sessão Master Completa',
+            sub: 'Esfoliante + Lipo/Infrared (10m) + Pote Verde sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: true,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Pote Verde (Localizada)</span>',
+            cremeDesc: 'Creme para Massagem Localizada sob a manta.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        }
+        if (app.diaSemana === 'Dom') {
+          return {
+            titulo: 'Domingo: Repouso Fisiológico Total',
+            sub: 'Sem aparelhos, sem cremes ativos e sem treino forçado.',
+            lipo: false,
+            scrub: false,
+            cremeTag: '',
+            cremeDesc: '',
+            manta: false,
+            ems: false,
+            marido: false,
+            descanso: true
+          };
+        }
+
+        let mapPotes = {
+          Seg: { tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">Pote Vermelho</span>', desc: 'Massagem manual rápida estimulante.' },
+          Ter: { tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás</span>', desc: 'Drenagem suave manual.' },
+          Qua: { tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Pote Verde</span>', desc: 'Nutrição e firmeza da pele.' },
+          Qui: { tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-900 text-zinc-300 border border-zinc-700">Pote Preto</span>', desc: 'Massagem circulatória modeladora.' },
+          Sex: { tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás</span>', desc: 'Drenagem linfática para retenção da semana.' }
+        };
+
+        return {
+          titulo: `${app.diaSemana}: Cuidado Manual & EMS`,
+          sub: 'Sem ultrassom e sem manta. Massagem manual + EMS opcional.',
+          lipo: false,
+          scrub: false,
+          cremeTag: mapPotes[app.diaSemana].tag,
+          cremeDesc: mapPotes[app.diaSemana].desc,
+          manta: false,
+          ems: true,
+          marido: false
+        };
+      }
+
+      // FASE 4
+      if (app.fase === 4) {
+        if (app.semanaF4 === 'A') {
+          return {
+            titulo: 'Semana A: Sessão Master Quinzenal',
+            sub: 'Esfoliante + Lipo/Infrared (10m) + Pote Verde sob Manta (25m) + Treino.',
+            lipo: true,
+            scrub: true,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Pote Verde (Localizada)</span>',
+            cremeDesc: 'Creme de Massagem Localizada sob a manta.',
+            manta: true,
+            ems: false,
+            marido: true
+          };
+        } else {
+          return {
+            titulo: 'Semana B: Consolidação Cutânea & Hábitos',
+            sub: 'Sem aparelhos e sem gel condutor. Aplicação pós-banho rápida + hidratação 35-40ml/kg.',
+            lipo: false,
+            scrub: false,
+            cremeTag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-950 text-purple-300 border border-purple-800">Pote Lilás / Verde</span>',
+            cremeDesc: 'Aplicação pós-banho rápida (2 a 3 min) para manutenção tecidual.',
+            manta: false,
+            ems: true,
+            marido: false,
+            fase4Cutanea: true
+          };
+        }
+      }
+    }
+
+    function alternarCheck(passoIdx) {
+      const key = getStorageKey(passoIdx);
+      app.checks[key] = !app.checks[key];
+      try {
+        localStorage.setItem('prot_estetico_checks', JSON.stringify(app.checks));
+      } catch (e) {}
+      if (app.checks[key]) playBeep(720, 0.12);
+      atualizarProgresso();
+    }
+
+    function zerarChecksDia() {
+      for (let i = 0; i <= 5; i++) {
+        delete app.checks[getStorageKey(i)];
+      }
+      try {
+        localStorage.setItem('prot_estetico_checks', JSON.stringify(app.checks));
+      } catch (e) {}
+      renderizarPlano();
+    }
+
+    function atualizarProgresso() {
+      const caixas = document.querySelectorAll('.step-chk-input');
+      const total = caixas.length;
+      let marcados = 0;
+      caixas.forEach(c => { if (c.checked) marcados++; });
+      const pct = total > 0 ? Math.round((marcados / total) * 100) : 0;
+      document.getElementById('bar-progresso').style.width = `${pct}%`;
+      document.getElementById('txt-progresso').innerText = `${marcados}/${total} Concluídos`;
+    }
+
+    function renderizarPlano() {
+      const cfg = obterConfiguracaoDia();
+
+      const badge = document.getElementById('badge-status-dia');
+      if (cfg.lipo) {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-xs font-semibold bg-appGreen/20 text-appGreen border border-appGreen/40';
+        badge.innerText = 'Lipocavitação Ativa';
+      } else {
+        badge.className = 'px-2.5 py-0.5 rounded-full text-xs font-semibold bg-appAccent/20 text-appAccent border border-appAccent/40';
+        badge.innerText = 'Repouso da Ponteira Metálica';
+      }
+
+      document.getElementById('titulo-dia').innerText = cfg.titulo;
+      document.getElementById('subtitulo-dia').innerText = cfg.sub;
+
+      const container = document.getElementById('lista-passos');
+      container.innerHTML = '';
+
+      if (cfg.descanso) {
+        container.innerHTML = `
+          <div class="p-4 rounded-xl bg-appInner border border-appBorder text-center text-xs text-slate-300">
+            <strong>Dia de Repouso Completo</strong><br>
+            Aproveite para hidratar-se e permitir a regeneração tecidual.
+          </div>
+        `;
+        atualizarProgresso();
+        return;
+      }
+
+      const passos = [];
+
+      // Passo 0: Preparo
+      passos.push({
+        id: 0,
+        titulo: 'Passo 0: Higiene & Preparo',
+        tag: cfg.scrub ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-200 border border-slate-600">Esfoliante Corporal</span>' : '',
+        desc: cfg.scrub 
+          ? 'Tome banho morno com movimentos circulares suaves usando o <strong>Esfoliante Corporal</strong> no abdômen/cintura. Enxágue bem e seque 100% a pele.'
+          : 'Banho comum diário. Seque completamente a pele antes de qualquer aplicação.'
+      });
+
+      // Passo 1: Lipocavitação / Infrared
+      if (cfg.lipo) {
+        passos.push({
+          id: 1,
+          titulo: 'Passo 1: Lipocavitação + Infrared (10 min)',
+          tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">Gel Neutro Incolor</span>',
+          desc: 'Aplique camada generosa de <strong>Gel Condutor Neutro</strong> (nunca cremes). Conecte o aparelho na tomada, ligue <strong>POWER</strong>, acione <strong>INFRARED</strong> e coloque <strong>SONIC em High</strong>. Deslize em movimentos circulares sem parar. Ao finalizar, limpe todo o gel com toalha.',
+          extra: `
+            <div class="mt-2 p-2.5 rounded-lg bg-sky-950/40 border border-sky-800/60 text-[11px] text-sky-200">
+              <strong>Dica da Gota d'Água:</strong> Pingue 2 gotas de água pura no cabeçote de inox ligado. Elas devem borbulhar e evaporar em névoa instantânea, confirmando o ultrassom ativo.
+            </div>
+          `,
+          timer: 'lipo'
+        });
+      }
+
+      // Eletroestimulação EMS (nos dias sem ultrassom)
+      if (cfg.ems) {
+        passos.push({
+          id: 2,
+          titulo: 'Módulo EMS: Eletroestimulação Muscular (15 min)',
+          tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-950 text-blue-300 border border-blue-800">Pads EMS Brancos</span>',
+          desc: 'Cole os 2 eletrodos brancos na barriga seca. Conecte o cabo lateral no aparelho, selecione o modo (Tapping ou Slimming) e ajuste a intensidade de 1 a 5 para contrações musculares rítmicas.',
+          timer: 'ems'
+        });
+      }
+
+      // Passo Cosmético
+      let husbandBox = '';
+      if (cfg.marido) {
+        husbandBox = `
+          <div class="mt-2.5 p-3 rounded-lg bg-indigo-950/30 border border-indigo-700/50 text-[11px] space-y-1 text-indigo-200">
+            <strong class="text-indigo-300 block font-bold">Instruções para o Marido (Massagem no Abdômen):</strong>
+            <p>1. <strong>Drenagem:</strong> Mãos espalmadas deslizando do umbigo para a virilha de forma contínua.</p>
+            <p>2. <strong>Modelagem:</strong> Puxar as laterais da cintura/flancos em direção ao centro para marcar a cintura.</p>
+            <p>3. <strong>Circulares:</strong> Movimentos circulares firmes no sentido horário sobre o abdômen.</p>
+          </div>
+        `;
+      }
+
+      passos.push({
+        id: 3,
+        titulo: 'Passo 2: Aplicação do Creme',
+        tag: cfg.cremeTag,
+        desc: `${cfg.cremeDesc}${husbandBox}`
+      });
+
+      // Passo Manta Térmica
+      if (cfg.manta) {
+        passos.push({
+          id: 4,
+          titulo: 'Passo 3: Manta Térmica + Plástico Filme (25 min)',
+          tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-300 border border-amber-800">Termoterapia</span>',
+          desc: 'Envolva a área com 2 a 3 voltas de plástico filme PVC sobre o creme seguro (Verde ou Lilás). Feche a manta por cima e ligue por 25 minutos.',
+          timer: 'manta'
+        });
+      }
+
+      // Passo Final: Treino ou Hidratação
+      if (!cfg.fase4Cutanea) {
+        passos.push({
+          id: 5,
+          titulo: 'Passo 4: Treino Aeróbico Obrigatório (20 a 45 min)',
+          tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">Queima Imediata</span>',
+          desc: 'Retire o plástico filme, remova o suor e vá direto para caminhada rápida, bicicleta ou esteira para oxidar a gordura mobilizada.'
+        });
+      } else {
+        passos.push({
+          id: 5,
+          titulo: 'Passo 4: Tônus & Hidratação de Consolidação',
+          tag: '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800">Consolidação</span>',
+          desc: 'Beba 35 a 40 ml de água por kg ao longo do dia e pratique 3 séries de vácuo abdominal (stomach vacuum) para sustentação profunda do abdômen.'
+        });
+      }
+
+      passos.forEach(p => {
+        const isMarcado = !!app.checks[getStorageKey(p.id)];
+        const card = document.createElement('div');
+        card.className = 'p-3.5 rounded-xl bg-appInner border border-appBorder text-xs space-y-2';
+
+        let timerBlock = '';
+        if (p.timer) {
+          const tObj = timers[p.timer];
+          const m = String(Math.floor(tObj.rem / 60)).padStart(2, '0');
+          const s = String(tObj.rem % 60).padStart(2, '0');
+          timerBlock = `
+            <div class="mt-2 p-2 rounded-lg bg-black/40 border border-appBorder flex items-center justify-between">
+              <span class="font-mono text-base font-bold text-white" id="disp-timer-${p.timer}">${m}:${s}</span>
+              <div class="flex gap-1.5">
+                <button onclick="toggleTimer('${p.timer}')" id="btn-timer-${p.timer}" class="px-3 py-1 rounded bg-appAccent text-slate-900 font-bold hover:opacity-90">
+                  ${tObj.running ? 'Pausar' : 'Iniciar'}
+                </button>
+                <button onclick="resetTimer('${p.timer}')" class="px-2 py-1 rounded bg-appCard border border-appBorder text-slate-300 hover:text-white">
+                  Zerar
+                </button>
               </div>
-              <p class="text-xs text-app-muted leading-relaxed" id="descStep0">
-                Tome um banho morno. Faça esfoliação com movimentos circulares suaves usando o <strong>Esfoliante Corporal</strong> na cintura e abdômen. Enxágue bem e seque a pele 100%.
-              </p>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <input type="checkbox" id="chk-${p.id}" ${isMarcado ? 'checked' : ''} onchange="alternarCheck(${p.id})" class="step-chk-input mt-1 w-4 h-4 rounded accent-appAccent cursor-pointer shrink-0">
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+                <strong class="text-white text-xs sm:text-sm">${p.titulo}</strong>
+                <div>${p.tag}</div>
+              </div>
+              <p class="text-slate-300 text-[11px] sm:text-xs leading-relaxed">${p.desc}</p>
+              ${p.extra || ''}
+              ${timerBlock}
             </div>
           </div>
-        </article>
+        `;
+        container.appendChild(card);
+      });
 
-        <!-- Passo 1: Lipocavitação -->
-        <article class="p-4 rounded-2xl bg-app-inner border border-app-border" id="cardStep1">
-          <div class="flex items-start gap-3.5">
-            <button onclick="toggleStep(1)" class="step-check mt-0.5 w-6 h-6 rounded-lg border-2 border-app-borderLight flex items-center justify-center text-transparent hover:border-app-green transition shrink-0" id="check1">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-            </button>
-            <div class="flex-1 space-y-2.5">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <h3 class="font-bold text-sm text-white flex items-center gap-2">
-                  <span>Passo 1: Lipocavitação (10 min)</span>
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-cyan-950 text-cyan-300 border border-cyan-800">
-                    Gel Condutor Neutro
-                  </span>
-                </h3>
-                <span class="text-xs font-semibold text-app-green">10 minutos</span>
-              </div>
-              <p class="text-xs text-app-muted leading-relaxed" id="descStep1">
-                Espalhe o <strong>Gel Condutor Neutro Incolor</strong> na área (nunca use cremes na ponteira!). Deslize o cabeçote continuamente com movimentos circulares lentos. Ao finalizar, retire todo o gel com uma toalha seca.
-              </p>
+      atualizarProgresso();
+    }
 
-              <!-- Timer Lipocavitação -->
-              <div class="bg-black/30 p-3 rounded-xl border border-app-border flex flex-wrap items-center justify-between gap-3">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-app-greenSoft text-app-green flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  </div>
-                  <div>
-                    <span class="text-[10px] block text-app-muted font-bold uppercase tracking-wider">Timer Ultrassom</span>
-                    <span id="timerLipoDisplay" class="font-mono text-base sm:text-lg font-bold text-white">10:00</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <button onclick="startLipoTimer()" id="btnLipoStart" class="px-3 py-1.5 rounded-xl bg-app-green hover:bg-emerald-600 text-app-bg text-xs font-bold transition">
-                    Iniciar
-                  </button>
-                  <button onclick="pauseLipoTimer()" class="px-2.5 py-1.5 rounded-xl bg-app-inner hover:bg-app-border text-white text-xs font-medium transition">
-                    Pausar
-                  </button>
+    // Inicialização da Grade e Botões
+    function inicializarControles() {
+      // Dias da semana
+      const wrapSemana = document.getElementById('wrap-dias-semana');
+      wrapSemana.innerHTML = '';
+      diasSemana.forEach(d => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-semana px-3 py-1.5 rounded-lg border border-appBorder text-xs whitespace-nowrap bg-appInner text-slate-300';
+        btn.dataset.dia = d;
+        btn.innerText = d === 'Seg' ? 'Segunda' : d === 'Ter' ? 'Terça' : d === 'Qua' ? 'Quarta' : d === 'Qui' ? 'Quinta' : d === 'Sex' ? 'Sexta' : d === 'Sab' ? 'Sábado' : 'Domingo';
+        btn.onclick = () => selecionarDiaSemana(d);
+        wrapSemana.appendChild(btn);
+      });
+
+      // Grade 31 dias
+      const wrapGrid = document.getElementById('grid-31-dias');
+      wrapGrid.innerHTML = '';
+      for (let i = 0; i <= 30; i++) {
+        const btn = document.createElement('button');
+        btn.dataset.dia = i;
+        btn.className = `btn-d31 py-1.5 text-center text-xs rounded border transition ${
+          i % 3 === 0 
+            ? 'border-appGreen/60 text-appGreen font-bold bg-appCard' 
+            : 'border-appBorder text-slate-400 bg-appInner'
+        }`;
+        btn.innerText = `D${i}`;
+        btn.onclick = () => selecionarDia31(i);
+        wrapGrid.appendChild(btn);
+      }
+
+      // Restaura checks salvos
+      try {
+        const saved = localStorage.getItem('prot_estetico_checks');
+        if (saved) app.checks = JSON.parse(saved);
+      } catch (e) {}
+    }
+
+    // Calculadora de Métricas & Print
+    function carregarExemploMetricas() {
+      document.getElementById('m-data').value = new Date().toISOString().split('T')[0];
+      document.getElementById('m-altura').value = '165';
+      document.getElementById('m-peso-atual').value = '68.2';
+      document.getElementById('m-peso-anterior').value = '70.0';
+      document.getElementById('m-cintura-atual').value = '82.0';
+      document.getElementById('m-cintura-anterior').value = '85.5';
+      document.getElementById('m-alta-atual').value = '73.5';
+      document.getElementById('m-alta-anterior').value = '76.0';
+      document.getElementById('m-abd-atual').value = '89.0';
+      document.getElementById('m-abd-anterior').value = '92.0';
+      document.getElementById('m-quadril-atual').value = '101.0';
+      document.getElementById('m-quadril-anterior').value = '102.5';
+    }
+
+    function gerarCartaoPrint(e) {
+      e.preventDefault();
+
+      const rawData = document.getElementById('m-data').value;
+      const altura = parseFloat(document.getElementById('m-altura').value);
+      const pesoAtu = parseFloat(document.getElementById('m-peso-atual').value);
+      const pesoAnt = parseFloat(document.getElementById('m-peso-anterior').value) || null;
+
+      const cAtu = parseFloat(document.getElementById('m-cintura-atual').value);
+      const cAnt = parseFloat(document.getElementById('m-cintura-anterior').value) || null;
+
+      const altAtu = parseFloat(document.getElementById('m-alta-atual').value) || null;
+      const altAnt = parseFloat(document.getElementById('m-alta-anterior').value) || null;
+
+      const abdAtu = parseFloat(document.getElementById('m-abd-atual').value) || null;
+      const abdAnt = parseFloat(document.getElementById('m-abd-anterior').value) || null;
+
+      const qAtu = parseFloat(document.getElementById('m-quadril-atual').value);
+      const qAnt = parseFloat(document.getElementById('m-quadril-anterior').value) || null;
+
+      if (isNaN(cAtu) || isNaN(qAtu) || isNaN(pesoAtu)) {
+        return;
+      }
+
+      // Data
+      let txtData = 'Data de Registro';
+      if (rawData) {
+        const p = rawData.split('-');
+        if (p.length === 3) txtData = `${p[2]}/${p[1]}/${p[0]}`;
+      } else {
+        const d = new Date();
+        txtData = `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+      }
+      document.getElementById('p-titulo-data').innerText = `Registro • ${txtData}`;
+
+      // IMC
+      if (!isNaN(altura) && altura > 0) {
+        const hM = altura / 100;
+        const imc = pesoAtu / (hM * hM);
+        document.getElementById('p-imc').innerText = imc.toFixed(1);
+        let cat = 'Eutrofia / Normal';
+        if (imc >= 25 && imc < 30) cat = 'Sobrepeso';
+        else if (imc >= 30) cat = 'Obesidade';
+        else if (imc < 18.5) cat = 'Abaixo do peso';
+        document.getElementById('p-imc-sub').innerText = cat;
+      } else {
+        document.getElementById('p-imc').innerText = '--';
+        document.getElementById('p-imc-sub').innerText = 'Altura não informada';
+      }
+
+      // RCQ
+      const rcq = cAtu / qAtu;
+      document.getElementById('p-rcq').innerText = rcq.toFixed(2);
+      document.getElementById('p-rcq-sub').innerText = rcq <= 0.85 ? 'Adequado (Ginecoide)' : 'Atenção (Androide)';
+
+      // Variação de Peso
+      const elVarPeso = document.getElementById('p-peso-var');
+      document.getElementById('p-peso-atual-txt').innerText = `Atual: ${pesoAtu.toFixed(1)} kg`;
+      if (pesoAnt !== null) {
+        const dw = pesoAtu - pesoAnt;
+        const s = dw > 0 ? `+${dw.toFixed(1)}` : dw.toFixed(1);
+        elVarPeso.innerText = `${s} kg`;
+        elVarPeso.className = `text-sm sm:text-base font-mono ${dw < 0 ? 'delta-neg' : (dw > 0 ? 'delta-pos' : 'delta-zero')}`;
+      } else {
+        elVarPeso.innerText = 'Inicial';
+        elVarPeso.className = 'text-sm sm:text-base font-mono text-slate-400';
+      }
+
+      // Tabela de Medidas
+      const linhas = [
+        { nome: 'Cintura (Linha Umbilical)', atu: cAtu, ant: cAnt },
+        { nome: 'Cintura Alta (Menor Curvatura)', atu: altAtu, ant: altAnt },
+        { nome: 'Abdômen Inferior (Linha Pélvica)', atu: abdAtu, ant: abdAnt },
+        { nome: 'Quadril', atu: qAtu, ant: qAnt }
+      ];
+
+      const cont = document.getElementById('p-tabela-medidas');
+      cont.innerHTML = '';
+
+      linhas.forEach(item => {
+        if (item.atu === null || isNaN(item.atu)) return;
+        let deltaHtml = '<span class="text-slate-500 font-mono text-[10px]">Referência</span>';
+        if (item.ant !== null && !isNaN(item.ant)) {
+          const d = item.atu - item.ant;
+          const s = d > 0 ? `+${d.toFixed(1)}` : d.toFixed(1);
+          const cls = d < 0 ? 'delta-neg' : (d > 0 ? 'delta-pos' : 'delta-zero');
+          const badge = d < 0 ? `↓ ${Math.abs(d).toFixed(1)} cm` : (d > 0 ? `↑ ${d.toFixed(1)} cm` : '0.0 cm');
+          deltaHtml = `
+            <div class="flex items-center gap-1.5 font-mono text-xs">
+              <span class="text-slate-500 line-through">${item.ant.toFixed(1)} cm</span>
+              <span class="${cls} px-1.5 py-0.5 rounded bg-appCard border border-appBorder">${badge}</span>
+            </div>
+          `;
+        }
+
+        const div = document.createElement('div');
+        div.className = 'flex items-center justify-between p-2 rounded-lg bg-appCard border border-appBorder text-xs';
+        div.innerHTML = `
+          <div>
+            <span class="text-slate-200 block">${item.nome}</span>
+            <strong class="text-appAccent font-mono">${item.atu.toFixed(1)} cm</strong>
+          </div>
+          <div>${deltaHtml}</div>
+        `;
+        cont.appendChild(div);
+      });
+
+      const card = document.getElementById('cartao-print');
+      card.classList.remove('hidden');
+      playBeep(680, 0.15);
+      card.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Inicialização ao carregar
+    window.onload = function() {
+      inicializarControles();
+      mudarFase(1);
+      selecionarDiaSemana('Seg');
+      const inputData = document.getElementById('m-data');
+      if (inputData) inputData.value = new Date().toISOString().split('T')[0];
+    };
+  </script>
+</body>
+</html>
